@@ -5,7 +5,7 @@
 
 SELECT player_name
 FROM players
-WHERE batting_hand = 'Left_Hand' AND country_name = 'England'
+WHERE batting_hand = 'Left-Hand' AND country_name = 'England'
 ORDER BY player_name;
 
 
