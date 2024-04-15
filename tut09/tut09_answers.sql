@@ -64,7 +64,7 @@ ORDER BY ABS(win_margin), m.match_id;
 
 SELECT player_name
 FROM players
-WHERE batting_hand = 'Left_Hand' AND dob > '1988-12-02'
+WHERE batting_hand = 'Left-Hand' AND dob > '1988-12-02'
 ORDER BY player_name;
 
 
