@@ -49,9 +49,8 @@ Your project leverages a variety of technologies to implement its functionality,
    ```
 
 2. Set up your local development environment using XAMPP or similar tools.
-3. Import the SQL schema provided in `database.sql` to set up the database schema.
-4. Configure the database connection settings in `config.php`.
-5. Start your local server (Apache and MySQL) and navigate to the project directory in your web browser.
+3. Import the SQL schema provided in `DBMS_SQL_Project` to set up the database schema.
+4. Start your local server (Apache and MySQL) and navigate to the project directory in your web browser.
 
 ## Usage
 
@@ -64,21 +63,65 @@ Your project leverages a variety of technologies to implement its functionality,
 7. Download the generated PDF and store it for your records.
 
 ## Docker Deployment
+Follow the steps below to set up the project on your local machine using Docker.
 
-To deploy this project using Docker, follow these steps:
+## Prerequisites
 
-1. Install Docker on your system if you haven't already.
-2. Clone the repository to your local machine.
-3. Build the Docker image:
+- Docker installed on your system. If you haven't installed Docker yet, you can download it from [here](https://www.docker.com/get-started).
 
-   ```bash
-   docker build -t faculty-registration .
-   ```
+## Steps for Deployment
 
-4. Run the Docker container:
+1. **Clone the Repository**: Clone this repository to your local machine using the following command:
 
    ```bash
-   docker run -d -p 80:80 faculty-registration
+   git clone <repository-url>
    ```
 
-5. Access the website in your browser at `http://localhost`.
+2. **Build the Docker Image**: Navigate to the project directory and build the Docker image using the following command:
+
+   ```bash
+   docker build -t Project .
+   ```
+
+3. **Run the Docker Container**: Once the image is built, run the Docker container using the following command:
+
+   ```bash
+   docker run -d -p 8000:80 -v /path/to/DBMS_project:/var/www/html faculty-registration
+   ```
+
+   This command will start the container in detached mode and map port 8000 on your local machine to port 80 inside the container.
+
+4. **Access the Website**: Open your web browser and navigate to [http://localhost:8000](http://localhost:8000) to access the faculty registration website.
+
+5. **Access PHPMyAdmin (Optional)**: If you need to manage the MySQL database using PHPMyAdmin, you can access it by navigating to [http://localhost:8080](http://localhost:8080) in your web browser. Use `root` as the username and `12345` as the password.
+
+## Docker Compose (Optional)
+
+Alternatively, you can use Docker Compose to simplify the deployment process. The `docker-compose.yml` file provided in the repository defines the services required for the project:
+
+- PHP with Apache server
+- MySQL database
+- PHPMyAdmin for database management
+
+To deploy using Docker Compose, follow these steps:
+
+1. Make sure Docker Compose is installed on your system. You can install it by following the instructions [here](https://docs.docker.com/compose/install/).
+
+2. Navigate to the project directory containing the `docker-compose.yml` file.
+
+3. Run the following command to start the services defined in the Docker Compose file:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+   This command will start the services in detached mode, and you'll be able to access the website at [http://localhost:8000](http://localhost:8000) and PHPMyAdmin at [http://localhost:8080](http://localhost:8080).
+
+## Notes
+
+- The MySQL root password is set to `12345` by default. You can change it by modifying the `MYSQL_ROOT_PASSWORD` environment variable in the `docker-compose.yml` file.
+- Make sure to update the PHP code and MySQL database credentials as per your requirements.
+
+---
+
+Feel free to customize this README file according to your project's specific requirements and provide any additional instructions or notes as needed.
