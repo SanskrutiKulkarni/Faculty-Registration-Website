@@ -1,5 +1,3 @@
-# 2201AI56_CS260
-
 # Faculty Registration Website
 
 This is a faculty registration website where faculty members can sign up, log in, provide their personal details, academic qualifications, and more. Upon completion of the registration process, a PDF containing all the details provided by the user is generated using TCPDF. The user can download this PDF, and a copy is stored on the server. Additionally, the website supports email verification for password recovery and auto-saving of incomplete details.
